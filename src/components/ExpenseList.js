@@ -5,17 +5,16 @@ import selectedExpenses from '../selectors/expenses';
 
 export const ExpenseList = (props) => (
     <div>
-        {props.expenses.length === 0 ? (
-            <p>No Expenses</p>
-        )
-            : (
-                props.expenses.map((expense) => {
-                    return <ExpenseListItem {...expense} key={expense.id} />;
-                })
-            )
+    {props.expenses.length === 0 && <p>No expenses to show currently.</p>}
+        {
+            props.expenses.map((expense) => {
+                return <ExpenseListItem {...expense} key={expense.id} />;
+            })
         }
     </div>
+
 )
+
 
 const mapStateToProps = (state) => {
     return {

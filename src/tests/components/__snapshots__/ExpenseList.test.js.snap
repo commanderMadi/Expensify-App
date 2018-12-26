@@ -3,7 +3,7 @@
 exports[`should render empty message when no expenses in array 1`] = `
 <div>
   <p>
-    No Expenses
+    No expenses to show currently.
   </p>
 </div>
 `;
