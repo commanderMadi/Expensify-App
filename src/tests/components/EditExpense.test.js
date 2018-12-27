@@ -4,14 +4,14 @@ import { EditExpense } from '../../components/EditExpense';
 import expenses from '../fixtures/expenses';
 
 
-let editExpense, startRemoveExpense, wrapper, history;
+let startEditExpense, startRemoveExpense, wrapper, history;
 
 beforeEach(() => {
-    editExpense = jest.fn();
+    startEditExpense = jest.fn();
     startRemoveExpense = jest.fn();
     history = {push: jest.fn()};
     wrapper = shallow(<EditExpense
-        editExpense = {editExpense}
+        startEditExpense = {startEditExpense}
         startRemoveExpense = {startRemoveExpense}
         history={history}
         expense={expenses[1]}/>)
@@ -25,7 +25,7 @@ test('should render edit expense component correctly', () => {
 test('should edit expense on submit', () => {
     wrapper.find('ExpenseForm').prop('onSubmit')(expenses[1]);
     expect(history.push).toHaveBeenLastCalledWith('/');
-    expect(editExpense).toHaveBeenLastCalledWith(expenses[1].id,expenses[1]);
+    expect(startEditExpense).toHaveBeenLastCalledWith(expenses[1].id,expenses[1]);
 });
 
 test('should startRemoveExpense on remove button click', () => {

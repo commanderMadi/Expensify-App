@@ -3,6 +3,7 @@ import {
     addExpense,
     startRemoveExpense,
     removeExpense,
+    startEditExpense,
     editExpense,
     startSetExpenses,
     setExpenses
@@ -48,6 +49,26 @@ test('should generate the removeExpense action object', () => {
         id: '123abc'
     });
 });
+
+test('should edit expenses data within database', (done) => {
+    const store = mockStore({});
+    const id = expenses[2].id
+    const updates = {description: 'Something different and badass like me!'}
+
+    store.dispatch(startEditExpense(id,updates)).then(() => {
+        const actions = store.getActions();
+        expect(actions[0]).toEqual({
+            type: 'EDIT_EXPENSE',
+            id,
+            updates
+        });
+        return database.ref(`expenses/${id}`).once('value');
+        }).then((snapshot) => {
+            expect(snapshot.val().description).toBe(updates.description);
+            done();
+    });
+});
+
 
 test('should generate the editExpense action object', () => {
     const action = editExpense('123abc', {
@@ -136,7 +157,6 @@ test('should fetch expenses from database', (done) => {
     const store = mockStore({});
     store.dispatch(startSetExpenses()).then(() => {
         const actions = store.getActions();
-        console.log(actions[0])
         expect(actions[0]).toEqual({
             type: 'SET_EXPENSES',
             expenses
