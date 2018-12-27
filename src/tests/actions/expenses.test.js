@@ -2,7 +2,9 @@ import {
     startAddExpense,
     addExpense,
     removeExpense,
-    editExpense
+    editExpense,
+    startSetExpenses,
+    setExpenses
 } from '../../actions/expenses';
 import expenses from '../fixtures/expenses';
 import configureStore from 'redux-mock-store';
@@ -11,6 +13,15 @@ import database from '../../firebase/firebase'
 
 const middleWare = [thunk];
 const mockStore = configureStore(middleWare);
+
+beforeEach((done) => {
+    const expenseData = {};
+    expenses.forEach(expense => {
+        const {id, description, note, amount, createdAt} = expense;
+        expenseData[id] = {description, note, amount, createdAt}
+    });
+    database.ref().set(expenseData).then(() => done());
+})
 
 test('should generate the removeExpense action object', () => {
     const action = removeExpense({
@@ -95,4 +106,24 @@ test('should add expense with default values to database and store', (done) => {
         expect(value).toEqual(defaultData);
         done();
     })
+});
+
+test('should set expenses', () => {
+    const action = setExpenses(expenses);
+    expect(action).toEqual({
+        type: 'SET_EXPENSES',
+        expenses
+    });
+});
+
+test('should fetch expenses from database', (done) => {
+    const store = mockStore({});
+    store.dispatch(startSetExpenses()).then(() => {
+        const actions = store.getActions();
+        expect(actions[0]).toEqual({
+            type: 'SET_EXPENSES',
+            expenses
+        });
+    });
+    done();
 });
