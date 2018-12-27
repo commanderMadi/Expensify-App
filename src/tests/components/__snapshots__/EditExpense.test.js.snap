@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should remove expense on remove button click 1`] = `
+exports[`should render edit expense component correctly 1`] = `
 <div>
   This is the edit expense page.
   <ExpenseForm
@@ -23,7 +23,7 @@ exports[`should remove expense on remove button click 1`] = `
 </div>
 `;
 
-exports[`should render edit expense component correctly 1`] = `
+exports[`should startRemoveExpense on remove button click 1`] = `
 <div>
   This is the edit expense page.
   <ExpenseForm

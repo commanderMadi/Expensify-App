@@ -1,6 +1,7 @@
 import {
     startAddExpense,
     addExpense,
+    startRemoveExpense,
     removeExpense,
     editExpense,
     startSetExpenses,
@@ -16,12 +17,27 @@ const mockStore = configureStore(middleWare);
 
 beforeEach((done) => {
     const expenseData = {};
-    expenses.forEach(expense => {
-        const {id, description, note, amount, createdAt} = expense;
+    expenses.forEach(({id, description, note, amount, createdAt}) => {
         expenseData[id] = {description, note, amount, createdAt}
     });
-    database.ref().set(expenseData).then(() => done());
-})
+    database.ref('expenses').set(expenseData).then(() => done());
+});
+
+test('should remove expenses data from database', (done) => {
+    const store = mockStore({});
+    const id = expenses[2].id
+    store.dispatch(startRemoveExpense({id})).then(() => {
+        const actions = store.getActions();
+        expect(actions[0]).toEqual({
+            type: 'REMOVE_EXPENSE',
+            id
+        });
+        return database.ref(`expenses/${id}`).once('value');
+        }).then((snapshot) => {
+            expect(snapshot.val()).toBeFalsy();
+            done();
+    });
+});
 
 test('should generate the removeExpense action object', () => {
     const action = removeExpense({
@@ -120,10 +136,11 @@ test('should fetch expenses from database', (done) => {
     const store = mockStore({});
     store.dispatch(startSetExpenses()).then(() => {
         const actions = store.getActions();
+        console.log(actions[0])
         expect(actions[0]).toEqual({
             type: 'SET_EXPENSES',
             expenses
         });
+        done();
     });
-    done();
 });
