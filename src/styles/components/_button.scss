@@ -1,0 +1,20 @@
+.button {
+    padding: $m-size;
+    border: none;
+    display: inline-block;
+    border-radius: 3px;
+    background-color: $sky-blue;
+    color: #fff;
+    font-size: $m-size;
+    text-decoration: none;
+    line-height: 1;
+}
+
+.button--nobg {
+    background: none;
+    font-size: $m-size;
+}
+
+.button--remove {
+    background: rgb(190, 51, 51);
+}

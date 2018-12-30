@@ -1,28 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Should render Header correctly 1`] = `
-<div>
-  <h1>
-    Budegtak
-  </h1>
-  <NavLink
-    activeClassName="is-active"
-    aria-current="page"
-    to="/"
+<header
+  className="header"
+>
+  <div
+    className="content-container"
   >
-    Dashboard
-  </NavLink>
-  <NavLink
-    activeClassName="is-active"
-    aria-current="page"
-    to="/create"
-  >
-    Create New
-  </NavLink>
-  <button
-    onClick={[MockFunction]}
-  >
-    Logout
-  </button>
-</div>
+    <div
+      className="header__content"
+    >
+      <Link
+        className="header__title"
+        replace={false}
+        to="/dashboard"
+      >
+        <h1>
+          Budgetak
+        </h1>
+      </Link>
+      <button
+        className="button button--nobg"
+        onClick={[MockFunction]}
+      >
+        Logout
+      </button>
+    </div>
+  </div>
+</header>
 `;

@@ -1,14 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render Login page correctly 1`] = `
-<div>
-  <h1>
-    Welcome. Please login to start.
-  </h1>
-  <button
-    onClick={[MockFunction]}
+<div
+  className="box-layout"
+>
+  <div
+    className="box-layout__box"
   >
-    Login
-  </button>
+    <h1
+      className="box-layout__title"
+    >
+      Budgetak
+    </h1>
+    <h2
+      className="box-layout__subtitle"
+    >
+      Control Your Pocket.
+    </h2>
+    <button
+      className="button"
+      onClick={[MockFunction]}
+    >
+      Login with Google
+    </button>
+  </div>
 </div>
 `;

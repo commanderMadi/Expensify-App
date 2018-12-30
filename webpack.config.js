@@ -1,13 +1,17 @@
 const path = require('path');
 const webpack = require('webpack');
-const CSSExtractPlugin = require('mini-css-extract-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 if (process.env.NODE_ENV === 'test') {
-  require('dotenv').config({ path: '.env.test' });
+    require('dotenv').config({
+        path: '.env.test'
+    });
 } else if (process.env.NODE_ENV === 'development') {
-  require('dotenv').config({ path: '.env.development' });
+    require('dotenv').config({
+        path: '.env.development'
+    });
 }
 
 
@@ -15,32 +19,42 @@ module.exports = (env) => {
     console.log('environment', env);
     return {
         mode: 'development',
-        entry: './src/app.js',
+        entry: ['babel-polyfill', './src/app.js'],
         output: {
             path: path.join(__dirname, 'public', 'dist'),
             filename: 'bundle.js'
         },
         module: {
-            rules: [
-                {
+            rules: [{
                     loader: 'babel-loader',
                     test: /\.js$/,
                     exclude: /node_modules/
                 },
-    
-                {   use: [
-                    {
-                        loader: CSSExtractPlugin.loader,
-                    },
-                    'css-loader',
-                    'sass-loader'
-                ],
-                    test:/\.s?css$/
+
+                {
+                    test: /\.(sa|sc|c)ss$/,
+                    use: [
+                        MiniCssExtractPlugin.loader,
+                        {
+                            loader: "css-loader",
+                            options: {
+                                importLoaders: 1,
+                                sourceMap: true
+                            }
+                        },
+                        {
+                            loader: "sass-loader",
+                            options: {
+                                importLoaders: 1,
+                                sourceMap: true
+                            }
+                        }
+                    ]
                 }
             ]
         },
         plugins: [
-            new CSSExtractPlugin({
+            new MiniCssExtractPlugin({
                 filename: 'styles.css'
             }),
             new webpack.DefinePlugin({
@@ -50,7 +64,7 @@ module.exports = (env) => {
                 'process.env.FIREBASE_PROJECT_ID': JSON.stringify(process.env.FIREBASE_PROJECT_ID),
                 'process.env.FIREBASE_STORAGE_BUCKET': JSON.stringify(process.env.FIREBASE_STORAGE_BUCKET),
                 'process.env.FIREBASE_MESSAGING_SENDER_ID': JSON.stringify(process.env.FIREBASE_MESSAGING_SENDER_ID)
-              })
+            })
         ],
         devtool: env === 'production' ? 'source-map' : 'inline-source-map',
         devServer: {

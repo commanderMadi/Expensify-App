@@ -1,0 +1,11 @@
+.visible-narrow {
+    @media (min-width: $desktop-breakpoint) {
+        display: none;
+    }
+}
+
+.visible-large {
+    @media (max-width: $desktop-breakpoint - .1rem) {
+        display: none;
+    }
+}

@@ -5,10 +5,10 @@ import ExpenseListFilters from './ExpenseListFilters';
 
 const DashBoard = () => (
     <div>
-        <h1>Dashboard</h1>
         <ExpenseSummary/>
-        <ExpenseList/>
         <ExpenseListFilters/>
+        <ExpenseList/>
+
 
     </div>
 );

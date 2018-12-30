@@ -9,6 +9,7 @@ import { startSetExpenses } from './actions/expenses';
 import { login, logout } from './actions/auth';
 import configureStore from './store/configStore';
 import './styles/styles.scss';
+import Loading from './components/Loading';
 
 
 const store = configureStore();
@@ -27,7 +28,7 @@ const renderApp = () => {
         hasBeenRendered = true;
     }
 }
-ReactDOM.render(<p>Loading...</p>, document.getElementById('app'));
+ReactDOM.render(<Loading/>, document.getElementById('app'));
 
 store.dispatch(startSetExpenses()).then(() => {
     ReactDOM.render(jsx, document.getElementById('app'));

@@ -16,12 +16,22 @@ export class EditExpense extends React.Component {
     render() {
         return (
             <div>
-            This is the edit expense page.
-            <ExpenseForm
-                expense={this.props.expense}
-                onSubmit = {this.onSubmit}
-            />
-            <button onClick={this.onClick}>Remove</button>
+                <div className="page-header">
+                    <div className="content-container">
+                        <h1>Edit Expense</h1>
+                    </div>
+                </div>
+                <div className="content-container">
+                    <ExpenseForm
+                        expense={this.props.expense}
+                        onSubmit={this.onSubmit}
+                    />
+                    <button 
+                        className="button button--remove"
+                        onClick={this.onClick}>
+                        Remove Expense
+                     </button>
+                </div>
             </div>
         )
     }
@@ -29,11 +39,11 @@ export class EditExpense extends React.Component {
 
 const mapStateToProps = (state, props) => ({
     expense: state.expenses.find((expense) => expense.id ===
-    props.match.params.id)
+        props.match.params.id)
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    startEditExpense: (id,expense) => dispatch(startEditExpense(id, expense)),
+    startEditExpense: (id, expense) => dispatch(startEditExpense(id, expense)),
     startRemoveExpense: expense => dispatch(startRemoveExpense(expense))
 })
 
