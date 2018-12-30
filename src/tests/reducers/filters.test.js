@@ -8,8 +8,8 @@ test('should init the reducer with default values', () => {
     expect(state).toEqual({
         text: '',
         sortBy: 'date',
-        startDate: moment().startOf('month'),
-        endDate: moment().endOf('month')
+        startDate: moment().startOf('year'),
+        endDate: moment().endOf('year')
     });
 });
 
