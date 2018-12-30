@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render the Loading page component 1`] = `
+<div
+  className="loader"
+>
+  <p
+    className="loader__text"
+  >
+    Loading data... Please wait 🤓 🚀 
+  </p>
+  <div
+    className="loader__item"
+  />
+</div>
+`;
