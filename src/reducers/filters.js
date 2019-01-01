@@ -3,8 +3,8 @@ import moment from 'moment';
 const filtersDefState = {
     text: '',
     sortBy: 'date',
-    startDate: moment().startOf('year'),
-    endDate: moment().endOf('year')
+    startDate: moment().startOf('month'),
+    endDate: moment().endOf('month')
 }
 
 export default (state = filtersDefState, action) => {
