@@ -16,9 +16,7 @@ if (process.env.NODE_ENV === 'test') {
 
 
 module.exports = (env) => {
-    console.log('environment', env);
     return {
-        mode: 'development',
         entry: ['babel-polyfill', './src/app.js'],
         output: {
             path: path.join(__dirname, 'public', 'dist'),
