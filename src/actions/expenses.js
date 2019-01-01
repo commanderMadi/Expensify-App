@@ -1,14 +1,12 @@
-import uuid from 'uuid';
 import database from '../firebase/firebase';
 
 // ADD_EXPENSE Action
-
 export const addExpense = (expense) => ({
     type: 'ADD_EXPENSE',
     expense
 });
 
-
+// START_ADD_EXPENSE Action
 export const startAddExpense = (expenseData) => {
     return (dispatch, getState) => {
         const uid = getState().auth.uid;
@@ -32,12 +30,13 @@ export const startAddExpense = (expenseData) => {
 }
 
 
-//REMOVE_EXPENSE Action
+// REMOVE_EXPENSE Action
 export const removeExpense = ({id} = {}) => ({
     type: 'REMOVE_EXPENSE',
     id
 });
 
+// START_REMOVE_EXPENSE Action
 export const startRemoveExpense = ({id} = {}) => {
     return (dispatch, getState) => {
         const uid = getState().auth.uid;
@@ -54,6 +53,7 @@ export const editExpense = (id, updates) => ({
     updates
 });
 
+// START_EDIT_EXPENSE Action
 export const startEditExpense = (id, updates) => {
     return (dispatch, getState) => {
         const uid = getState().auth.uid;
@@ -63,11 +63,13 @@ export const startEditExpense = (id, updates) => {
     }
 }
 
+// SET_EXPENSES Action
 export const setExpenses = (expenses) => ({
     type: 'SET_EXPENSES',
     expenses
 });
 
+// START_SET_EXPENSES Action
 export const startSetExpenses = () => {
     return (dispatch, getState) => {
         const uid = getState().auth.uid;
