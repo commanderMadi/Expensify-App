@@ -36,7 +36,7 @@ export class WelcomeMessage extends React.Component {
             <h1 className="welcome__username">Hello there, <span>{userName.displayName}</span>!</h1>
             {!this.state.msgDismissed &&
                 <div className="welcome">
-                <span id="close-msg" onClick={this.onClickHandle}>X [close message]</span>
+                <span id="close-msg" onClick={this.onClickHandle}>x [dismiss message]</span>
                 <p>
                 By default, shown expenses are those between the start and the end
                 of the current month. You can change the date range below.
@@ -47,10 +47,10 @@ export class WelcomeMessage extends React.Component {
             }
             {startDate && endDate ? 
                 (<p>
-                    You are currently viewing your expenses from {startDate} to {endDate}
+                    Currently showing your expenses from {startDate} to {endDate}
                 </p>) 
                 :
-                (<p>You are currently viewing all your expenses. You can apply filters below to narrow the view.</p>)}
+                (<p>Currently showing all expenses. You can set a date range to narrow the search.</p>)}
             </div>
         )
     }

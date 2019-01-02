@@ -1,5 +1,6 @@
 .welcome {
-    background-color: #7FFFD4;
+    background-color: lighten($light-green, 45%);
+    border-radius: 3px;
     padding: $s-size;
     span {
         font-weight: 700;
@@ -11,7 +12,7 @@
     font-size: $font-size-large;
     color: $dark-grey;
     span {
-        color: #33b68a;
+        color: $light-green;
     }
 }
 
