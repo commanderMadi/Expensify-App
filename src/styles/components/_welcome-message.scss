@@ -1,0 +1,20 @@
+.welcome {
+    background-color: #7FFFD4;
+    padding: $s-size;
+    span {
+        font-weight: 700;
+        cursor: pointer;
+    }
+}
+
+.welcome__username {
+    font-size: $font-size-large;
+    color: $dark-grey;
+    span {
+        color: #33b68a;
+    }
+}
+
+.welcome__currently-viewing {
+    font-style: italic;
+}

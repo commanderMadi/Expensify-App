@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should dismiss default message 1`] = `
+<div
+  className="content-container"
+>
+  <h1
+    className="welcome__username"
+  >
+    Hello there, 
+    <span>
+      Test user
+    </span>
+    !
+  </h1>
+  <p
+    className="welcome__currently-viewing"
+  >
+    You are currently viewing expenses from 
+    01-Jan-1970
+     to 
+    05-Jan-1970
+  </p>
+</div>
+`;
+
+exports[`Should render the welcome message correctly 1`] = `
+<div
+  className="content-container"
+>
+  <h1
+    className="welcome__username"
+  >
+    Hello there, 
+    <span>
+      Test user
+    </span>
+    !
+  </h1>
+  <div
+    className="welcome"
+  >
+    <span
+      id="close-msg"
+      onClick={[Function]}
+    >
+      X [close message]
+    </span>
+    <p>
+      By default, shown expenses are those between the start and the end of the current month. You can change the date range below. Or you can clear the date range to view a list of all your expenses by clicking the X button on the date range filter.
+    </p>
+  </div>
+  <p
+    className="welcome__currently-viewing"
+  >
+    You are currently viewing expenses from 
+    01-Jan-1970
+     to 
+    05-Jan-1970
+  </p>
+</div>
+`;

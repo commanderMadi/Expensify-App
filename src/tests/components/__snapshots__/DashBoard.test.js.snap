@@ -2,6 +2,9 @@
 
 exports[`should render the dashboard page component 1`] = `
 <div>
+  <Connect(WelcomeMessage)
+    userName={null}
+  />
   <Connect(ExpenseSummary) />
   <Connect(ExpenseListFilters) />
   <Connect(ExpenseList) />
