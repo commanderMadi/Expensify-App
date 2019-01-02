@@ -20,7 +20,7 @@
 ### - Ability to add total income and automatically subtract it from the expenses.
 
 ## For Developers:
-### - Project is open source. You can fork it, re-structure or redesign it as you like.
+### - Project is open source. You can fork, re-structure or redesign it as you like.
 ### - Built using:
         - React
         - React-Router
