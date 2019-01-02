@@ -28,8 +28,8 @@ export class WelcomeMessage extends React.Component {
         }
     }
     render() {
-        const startDate = this.props.filters.startDate.format('DD-MMM-YYYY');
-        const endDate = this.props.filters.endDate.format('DD-MMM-YYYY');
+        const startDate = this.props.filters.startDate ? this.props.filters.startDate.format('DD-MMM-YYYY') : undefined;
+        const endDate = this.props.filters.endDate ? this.props.filters.endDate.format('DD-MMM-YYYY') : undefined;
         const userName = this.props.userName;
         return (
             <div className="content-container">
@@ -45,9 +45,12 @@ export class WelcomeMessage extends React.Component {
                 </p>
                 </div>
             }
-            <p className="welcome__currently-viewing">
-            You are currently viewing expenses from {startDate} to {endDate}
-            </p>
+            {startDate && endDate ? 
+                (<p>
+                    You are currently viewing your expenses from {startDate} to {endDate}
+                </p>) 
+                :
+                (<p>You are currently viewing all your expenses. You can apply filters below to narrow the view.</p>)}
             </div>
         )
     }
