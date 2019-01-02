@@ -1,5 +1,5 @@
 # Budgetak - Control your pocket!
-## [![GitHub version](https://badge.fury.io/gh/boennemann%2Fbadges.svg)](http://badge.fury.io/gh/boennemann%2Fbadges)
+## [![GitHub version](https://badge.fury.io/gh/commandermadi%2budgetak.svg)](http://badge.fury.io/gh/commandermadi%2budgetak)
 
 ## What is Budgetak?
 ### It is a budget control app. You can save your expenses, edit them and know how much you spent. It automatically calculates all your expenses too.
