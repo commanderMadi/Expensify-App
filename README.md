@@ -12,7 +12,14 @@
 ### - Secure and totally private. 🛡
 
 ## URL to live app:
-### - https://budgetak.geekvalley.io
+### - ~~https://budgetak.geekvalley.io~~ No longer available due to issues with Heroku.
+
+## Installation:
+### 1 - Download the folder or clone it your computer.
+### 2 - Install the dependencies using yarn. (yarn install)
+### 3 - Run the development build. (yarn run build:dev)
+### 4 - Run the dev server (yarn run dev-server)
+### 5 - Open http://localhost:8080/ in your favorite browser. (Keep an eye on the terminal message as the port may be different from 8080)
 
 ## Future features:
 ### - Adding categories to add your expenses to.
