@@ -12,6 +12,8 @@ const config = {
     messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID
 };
 
+console.log(config);
+
 firebase.initializeApp(config);
 const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 

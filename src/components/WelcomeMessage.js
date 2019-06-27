@@ -4,26 +4,26 @@ import { connect } from 'react-redux';
 
 export class WelcomeMessage extends React.Component {
     state = {
-        msgDismissed: false
+        isDismissed: false
     }
     constructor(props) {
         super(props);
     }
     onClickHandle = () => {
             this.setState(prevState=>({
-                msgDismissed: !prevState.msgDismissed
+                isDismissed: !prevState.isDismissed
             }));
     }
 
     componentDidMount() {
         const json = localStorage.getItem('dismissed');
-        const msgDismissed = JSON.parse(json);
-        this.setState(() => ({msgDismissed}));
+        const isDismissed = JSON.parse(json);
+        this.setState(() => ({isDismissed}));
     }
 
     componentDidUpdate() {
-        if(this.state.msgDismissed) {
-            const msg = JSON.stringify(this.state.msgDismissed);
+        if(this.state.isDismissed) {
+            const msg = JSON.stringify(this.state.isDismissed);
             localStorage.setItem('dismissed', msg);
         }
     }
@@ -34,7 +34,7 @@ export class WelcomeMessage extends React.Component {
         return (
             <div className="content-container">
             <h1 className="welcome__username">Hello there, <span>{userName.displayName}</span>!</h1>
-            {!this.state.msgDismissed &&
+            {!this.state.isDismissed &&
                 <div className="welcome">
                 <span id="close-msg" onClick={this.onClickHandle}>x [dismiss message]</span>
                 <p>
